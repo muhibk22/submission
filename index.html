@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotient Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: aquamarine;
+
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        #result {
+            width: 100%;
+            padding: 5px;
+            margin: 5px;
+            width: 30%;
+            box-sizing: border-box;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>
+        Quotient Calculator. Even/odd Checker
+    </h2>
+    <hr>
+    <label for="division">Division: </label>
+    <input type="number" id="input1" title="Add the Divisor" placeholder="Divisor">
+    <input type="number" id="input2" title="Add the Dividend" placeholder="Dividend">
+    <button onclick="performDivision()">Divide</button>
+    <br>
+    <label for="result">Result:</label>
+    <input type="text" id="result" readonly>
+
+    <script>
+        function performDivision() {
+            var num1 = parseFloat(document.getElementById('input1').value) || 0;
+            var num2 = parseFloat(document.getElementById('input2').value) || 0;
+
+            if (num2 === 0) {
+                alert("Division by zero is undefined.");
+                return;
+            }
+
+            var result = num1 / num2;
+
+            document.getElementById('result').value = result.toFixed(2);
+
+            var evenOddResult = result % 2 === 0 ? "Even" : "Odd";
+            setTimeout(() => {
+                window.alert("The result is: " + result.toFixed(2) + "\nIt is " + evenOddResult + ".");
+            }, 100);
+        }
+    </script>
+
+</body>
+
+</html>
